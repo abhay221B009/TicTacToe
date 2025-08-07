@@ -1,18 +1,25 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 body {
   background-color: #d6d3f0;
   text-align: center;
+  font-family: sans-serif;
+  padding: 1rem;
 }
+
 .wavy-heading {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 5px;
   font-size: 2.5rem;
   font-weight: bold;
   color: #20b2aa;
+  margin-bottom: 1rem;
 }
 
 .wavy-heading span {
@@ -74,63 +81,128 @@ body {
 }
 
 .container {
-  height: 70vh;
-
+  min-height: 60vh;
   display: flex;
-
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .game {
-  height: 60vmin;
-  width: 60vmin;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 2vmin;
+  width: 100%;
+  max-width: 60vmin;
+  margin: auto;
 }
+
 .box {
-  height: 18vmin;
-  width: 18vmin;
+  width: 30%;
+  aspect-ratio: 1 / 1;
   border-radius: 1rem;
   border: none;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   font-size: 8vmin;
   color: #0f5257;
   background-color: #9c92a3;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.box:active {
+  transform: scale(0.95);
+}
+
+.reset,
+.new-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem;
 }
 
 .reset {
-  padding: 0.5rem;
   background-color: #0f5257;
-  font-size: 1.25rem;
-  color: white;
-  border-radius: 0.5rem;
-  box-shadow: #0f0b0c 0 0 1rem rgba(0, 0, 0, 0.2);
 }
 
 .new-btn {
-  padding: 0.5rem;
   background-color: #35c335;
-  font-size: 1.25rem;
-  color: white;
-  border-radius: 0.5rem;
-  box-shadow: #0f0b0c 0 0 1rem rgba(0, 0, 0, 0.2);
 }
+
 #msg {
-  font-size: 8vmin;
+  font-size: 7vmin;
   color: #ffffc7;
+  text-align: center;
 }
+
 .msg-container {
-  height: 30vmin;
+  min-height: 20vmin;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2vmin;
   flex-direction: column;
+  margin: 1rem 0;
 }
+
 .hide {
   display: none;
+}
+
+/* ---------- 📱 Responsive Media Queries ---------- */
+
+@media (max-width: 768px) {
+  .wavy-heading {
+    font-size: 2rem;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .box {
+    font-size: 10vmin;
+  }
+
+  #msg {
+    font-size: 9vmin;
+  }
+
+  .reset,
+  .new-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wavy-heading {
+    font-size: 1.75rem;
+  }
+
+  .box {
+    font-size: 11vmin;
+  }
+
+  #msg {
+    font-size: 10vmin;
+  }
+
+  .reset,
+  .new-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .container {
+    min-height: 50vh;
+  }
+
+  .msg-container {
+    min-height: 15vmin;
+  }
 }
